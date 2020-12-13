@@ -23,7 +23,7 @@ const nodemailer = require('nodemailer');
 
                 transporter.sendMail(message, () => {});
                 } catch (e) {
-                // handle errors here
+                //Handle Error 
                 }
             },
         };
