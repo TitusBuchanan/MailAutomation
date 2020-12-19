@@ -5,8 +5,17 @@ const path = require("path");
 
 const app = express();
 
+//Bodyparser middleware
+app.use(bodyParser.urlencoded({extended: true}));
+
 //Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Signup Route
+app.post('/signup', (req,res)=> {
+    console.log(req.body)
+    res.send("Hello");
+});
 
 const PORT = process.env.PORT || 5000;
 
