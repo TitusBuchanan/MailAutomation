@@ -2,6 +2,7 @@ const express = require("express");
 const request = require("request");
 const bodyParser = require("body-parser");
 const path = require("path");
+const { response } = require("express");
 
 const app = express();
 
@@ -15,7 +16,53 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.post('/signup', (req,res)=> {
    const { firstName, lastName, email } = req.body;
 
-//Validation to make sure fields are fillled
+   //Validation
+   if(!firstName || !lastName || !email){
+      res.redirect('/fail.html');
+      return
+   }
+
+   //Construct req Data as API Dictactes 
+   const data = {
+      members: [
+         {
+         email_address:email,
+      status:'subscribed',
+      merge_fields: {
+         FName: firstName,
+         LName: lastName
+      }
+      }
+      ]
+      
+   }
+
+   const postData = JSON.stringify(data)
+
+   const options = {
+      //URL with data center and List ID
+      url:'https://mandrillapp.com/api/1.0/users/ping',
+      method: 'POST',
+      headers: {
+         //API KEY
+         Authorization:"auth 6f1ac3b443fe802af0dece7597d46d83-us7"
+      },
+      body:postData
+   }
+
+   request(options , (err,response, body) => {
+      if(err){
+         res.redirect('/fail.html');
+      } else {
+         if(response.statusCode === 200) {
+            res.redirect('/success.html');
+         } else {
+            res.redirect('/fail.html');
+         }
+      }
+   });
+
+
    
 });
 
