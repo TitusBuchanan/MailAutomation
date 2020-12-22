@@ -16,7 +16,7 @@ app.post('/signup', (req,res)=> {
    const { firstName, lastName, email } = req.body;
 
 //Validation to make sure fields are fillled
-   if()
+   
 });
 
 const PORT = process.env.PORT || 5000;
