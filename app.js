@@ -45,7 +45,7 @@ app.post('/signup', (req,res)=> {
       method: 'POST',
       headers: {
          //API KEY
-         Authorization:"auth 6f1ac3b443fe802af0dece7597d46d83-us7"
+         Authorization:"auth 8a78daeb7124f01ed129530f35d8f42f-us18"
       },
       body:postData
    }
