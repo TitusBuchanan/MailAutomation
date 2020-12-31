@@ -5,6 +5,7 @@ var app = express(),
 
 //Email schedules code comes here
 const PORT = process.env.PORT || 5000;
+//Listening to port
 app.listen(PORT);
 
 var transporter = nodemailer.createTransport({
@@ -15,5 +16,8 @@ var transporter = nodemailer.createTransport({
           }
  });
  const mailOptions = { 
-               
+               //Get All
+               //Check Unposted
+               //Validate 
+               //If new pass to mailchimp
  }
