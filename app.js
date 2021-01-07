@@ -3,8 +3,16 @@ const request = require("request");
 const bodyParser = require("body-parser");
 const path = require("path");
 const { response } = require("express");
-
+const cron = require('node-cron');
+const shell = require('shelljs');
 const app = express();
+
+
+//NodeCron Job scheduler 
+cron.schedule("* * * * * *", function(){
+   console.log("node js script runnning")
+})
+
 
 //Bodyparser middleware
 app.use(bodyParser.urlencoded({extended: true}));
