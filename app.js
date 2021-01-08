@@ -20,6 +20,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 //Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/{{PRODServerURL}}/users/read.php', (req,res) => {
+   const user = "new users";
+})
+
 //Signup Route
 app.post('/signup', (req,res)=> {
    const { firstName, lastName, email } = req.body;
