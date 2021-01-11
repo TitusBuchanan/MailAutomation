@@ -1,6 +1,6 @@
 var cron = require('node-cron');
 var nodemailer = require('nodemailer');
-var app = express(),
+var app = express();
 
 
 //Email schedules code comes here
