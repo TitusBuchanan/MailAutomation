@@ -27,16 +27,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use("/users", async (req,res) => {
-
-   const url = "http://apidataset.orgbubble.com/amb/v1/prod/users/read.php";
-
-   const response = await fetch(url, {'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9leGFtcGxlLm9yZyIsImF1ZCI6Imh0dHA6XC9cL2V4YW1wbGUuY29tIiwiZXhwIjoxNjEwMjQzODUxLCJkYXRhIjpbXX0.VKzInWKfP7UK1zXt-86ptrmHyFcuiJJuerE3IpmWd2s'});
-   const json = await response.json();
-
-  
-   res.send(json)
-})
 
 //Signup Route
 app.post('/signup', (req,res)=> {
