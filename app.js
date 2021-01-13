@@ -28,6 +28,22 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
+app.use("/users", async (req,res) => {
+
+   //1
+   //Generate method to bring in token 
+   //Token lifecycle 24 hours 
+   //use token 
+   //Generate token once to have multiple uses fpr token as to not have to generate it multilple times 
+
+   //2
+   //Create Lockout list 
+   //Can be a text file or database
+   //Store all emails that were sync'd already
+
+   
+})
+
 //Signup Route
 app.post('/signup', (req,res)=> {
    const { firstName, lastName, email } = req.body;
